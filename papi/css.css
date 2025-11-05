@@ -1,0 +1,119 @@
+:root{
+    --bg:#f6f7f9;
+    --panel:#ffffff;
+    --text:#1f1f1f;
+    --muted:#666;
+    --accent:#9bd36b; /* proche de #DAF7A6 mais moins flashy */
+    --shadow:0 12px 24px rgba(0,0,0,.08);
+    --radius:16px;
+  }
+  
+  /* reset bref */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  img{max-width:100%;display:block}
+  
+  body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    color:var(--text);
+    background-image:url("image/fond du site.jpg"); /* ton nom de fichier fonctionne car il est entre guillemets */
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+  }
+  
+  /* header */
+  .site-header{
+    background:var(--accent);
+    padding:10px 16px;
+    box-shadow:var(--shadow);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .site-title{margin:0;font-size:clamp(18px,3vw,28px)}
+  .logo{height:64px; width:auto}
+  
+  .steps-nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:8px;
+  }
+  .steps-nav .step-btn{
+    appearance:none; border:2px solid var(--panel); background:#fff; color:#000;
+    padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600;
+  }
+  .steps-nav .step-btn[aria-pressed="true"]{ background:var(--panel); }
+  
+  /* layout principal */
+  #container{
+    width:min(1100px, 92%);
+    margin:32px auto;
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:24px;
+    align-items:stretch;
+  }
+  @media (max-width: 900px){
+    #container{ grid-template-columns:1fr }
+  }
+  
+  #slider, #info-box{
+    background:var(--panel);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  
+  #slider{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:280px;
+  }
+  #slide{
+    width:100%;
+    height:100%;
+    max-height:520px;
+    object-fit:cover; /* images de tailles différentes = ok */
+    border-radius:var(--radius);
+  }
+  
+  #info-box{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background-image:url("image/fondbouton.png");
+    background-size:cover;
+    background-position:center;
+  }
+  #info-box h2{ margin:0 0 6px; color:#96281B }
+  #info-box p{ margin:0; color:var(--text) }
+  
+  .controls{
+    display:flex; gap:10px; justify-content:center; margin-top:16px;
+  }
+  .controls button{
+    width:48px; height:48px; border-radius:50%; cursor:pointer;
+    border:2px solid var(--accent); background:#fff; font-size:16px; font-weight:700;
+  }
+  .controls button:hover{ background:var(--accent); }
+  
+  /* footer non-fixe pour éviter de masquer le contenu */
+  .site-footer{
+    background:var(--accent);
+    padding:16px;
+    text-align:center;
+    margin-top:auto;
+    box-shadow:0 -6px 16px rgba(0,0,0,.06);
+  }
+  .site-footer p{ margin:0; font-weight:600 }
+  
